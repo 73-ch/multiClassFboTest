@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "testClass.h"
+#include "/Users/Namikawa/Desktop/openframeworks/openFrameworks-master/addons/ofxShaderTex/src/ofxShaderTex.h"
 
 class ofApp : public ofBaseApp{
 
@@ -24,6 +25,6 @@ class ofApp : public ofBaseApp{
 
     vector <testClass> scenes;
     
-    ofShader main_shader;
+    ofxShaderTex main_shader;
     ofPlanePrimitive plane;
 };

@@ -11,7 +11,8 @@
 testClass::testClass (int i) {
     fbo.allocate(ofGetWidth(), ofGetHeight());
     shader.load("vertex.glsl", "fragment.glsl");
-    color = glm::vec3(0.1, 0.1, 0.1);
+//    color = glm::vec3(0.1, 0.1, 0.1);
+    color = glm::vec3(ofRandom(1.0), ofRandom(1.0),ofRandom(1.0));
 }
 
 void testClass::begin() {

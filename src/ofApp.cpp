@@ -2,8 +2,6 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    
-    (0);
     ofEnableAlphaBlending();
     ofSetVerticalSync(false);
     
@@ -41,13 +39,25 @@ void ofApp::draw(){
 //        i++;
 //    }
 //
+    
+    GLint texes[10];
     main_shader.begin();
     main_shader.setUniform2f("u_resolution", ofGetWidth(), ofGetHeight());
     for (int i = 0; i< scenes.size(); i++) {
 //        main_shader.setUniformTexture("tex[" + ofToString(i) + "]", scenes[i].getTexture(), i);
+        ofTextureData texData = scenes[i].getTexture().getTextureData();
+        glActiveTexture(GL_TEXTURE0 + i);
+        glEnable(texData.textureTarget);
+        glBindTexture(texData.textureTarget, texData.textureID);
+        glDisable(texData.textureTarget);
+        
+        texes[i] = i;
 //        if (i == 0) continue;
-        main_shader.setUniformTexture("tex[" + ofToString(i), scenes[i].getTexture(), i);
+//        main_shader.setUniformTexture("tex_" + ofToString(i), scenes[i].getTexture(), i);
     }
+    
+    main_shader.setUniform1iv("tex", texes, 10);
+    
 //    main_shader.setUniformTexture("tex_0", scenes[0].getTexture(), 1);
 //    ofDrawRectangle(0,0, ofGetWidth(), ofGetHeight());
     plane.draw();

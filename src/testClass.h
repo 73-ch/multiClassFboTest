@@ -1,4 +1,5 @@
 #include "ofMain.h"
+#include "/Users/Namikawa/Desktop/openframeworks/openFrameworks-master/addons/ofxShaderTex/src/ofxShaderTex.h"
 
 
 class testClass {
@@ -6,7 +7,7 @@ class testClass {
     
 public:
     ofFbo fbo;
-    ofShader shader;
+    ofxShaderTex shader;
     glm::vec3 color;
     
     testClass(int i);
